@@ -1,6 +1,6 @@
 {
   "name": "react-native-select-screen-rn",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Select Screen",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/aertonoliveira/react-native-select-screen/react-native-select-screen-rn",
-  "author": "Aerton Oliveira <aertonoliveiradosreis@gmail.com> (https://github.com/aertonoliveira/react-native-select-screen)",
+  "repository": "https://github.com/aertonoliveira/react-native-select-screen-rn",
+  "author": "Aerton Oliveira <aertonoliveiradosreis@gmail.com> (https://github.com/aertonoliveira/react-native-select-screen-rn)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aertonoliveira/react-native-select-screen/react-native-select-screen-rn/issues"
+    "url": "https://github.com/aertonoliveira/react-native-select-screen-rn/issues"
   },
-  "homepage": "https://github.com/aertonoliveira/react-native-select-screen/react-native-select-screen-rn#readme",
+  "homepage": "https://github.com/aertonoliveira/react-native-select-screen-rn#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
