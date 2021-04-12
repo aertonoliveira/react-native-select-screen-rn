@@ -17,7 +17,43 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Select color={'#000'} items={ITEMS} onChange={setState} />
+      <Select
+        options={{
+          searchStyle: {
+            iconSearch: '#f00',
+            border: {
+              color: '#f00',
+              width: '5px',
+              positionBorder: 'bottom',
+              borderRadius: '0px',
+            },
+
+            colorText: '#fff',
+          },
+          selectBoxStyle: {
+            angleDown: '#ccc',
+            border: {
+              color: '#f00',
+              width: '5px',
+              positionBorder: 'bottom',
+              borderRadius: '0px',
+            },
+          },
+          buttonItem: {
+            colorText: '#fff',
+            itemLabelColor: '#fff',
+            border: {
+              color: '#f00',
+              width: '5px',
+              positionBorder: 'bottom',
+              borderRadius: '0px',
+            },
+          },
+          backgroundContainer: '#000',
+        }}
+        items={ITEMS}
+        onChange={setState}
+      />
     </View>
   );
 }
@@ -27,10 +63,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
   },
 });

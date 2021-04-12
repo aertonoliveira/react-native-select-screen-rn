@@ -1,12 +1,13 @@
 import styled from "styled-components/native";
+
 import Icon from 'react-native-vector-icons/FontAwesome';
-import type { ListItemProps } from ".";
+import type { OptionsProps } from "src/interfaces/interfaces";
 interface PropsStyle{
-  style: string;
+  style: OptionsProps;
 }
 
-export const Container = styled.View`
-  background-color: #fff;
+export const Container = styled.View<PropsStyle>`
+  background-color: ${props => props.style.backgroundContainer ?? '#fff'};
   position: absolute;
   z-index: 100;
   width:100%;
@@ -15,11 +16,12 @@ export const Container = styled.View`
   flex:1;
 `;
 
-export const SearchBox = styled.View`
-  border-radius: 10px;
+export const SearchBox = styled.View<PropsStyle>`
   margin-bottom: 20px;
-  border-width: 1px;
-  borderColor: #CCCCCC;
+  border-radius: ${props => props.style.searchStyle?.border?.borderRadius ?? '10px'};
+  border-${props => props.style.searchStyle?.border?.positionBorder ? props.style.searchStyle?.border?.positionBorder + '-' : ''}width:
+  ${props => props.style.searchStyle?.border?.width ?? '1px'};
+  borderColor: ${props => props.style.searchStyle?.border?.color ?? '#ccc'};
   borderStyle: solid;
   flex-direction: row;
   justify-content: space-between;
@@ -27,30 +29,32 @@ export const SearchBox = styled.View`
 
 `;
 
-export const SearchInput = styled.TextInput`
+export const SearchInput = styled.TextInput<PropsStyle>`
   padding: 15px 20px;
+  color: ${props => props.style.searchStyle?.colorText ?? '#ccc'}
 `;
 
 export const ListElements = styled.ScrollView`
 
 `;
 
-export const ItemLabel = styled.Text`
-  color: #000;
+export const ItemLabel = styled.Text<PropsStyle>`
+  color: ${props => props.style.buttonItem?.itemLabelColor ?? '#fff'}
 `;
 
-export const ButtonItem = styled.TouchableOpacity`
-  border-radius: 10px;
+export const ButtonItem = styled.TouchableOpacity<PropsStyle>`
   margin-bottom: 5px;
-  border-width: 1px;
-  borderColor: #CCCCCC;
+  border-radius: ${props => props.style.selectBoxStyle?.border?.borderRadius ?? '10px'};
+  border-${props => props.style.selectBoxStyle?.border?.positionBorder ? props.style.selectBoxStyle?.border?.positionBorder + '-' : ''}width: 1px;
+  borderColor: ${props => props.style.selectBoxStyle?.border?.color ?? '#ccc'};
   borderStyle: solid;
   padding: 20px;
+
 `;
 export const SelectBox = styled.TouchableOpacity<PropsStyle>`
-    border-radius: 10px;
-    border-width: 1px;
-    borderColor: ${props => props.style ?? '#ccc'};
+    border-radius: ${props => props.style.selectBoxStyle?.border?.borderRadius ?? '10px'};
+    border-${props => props.style.selectBoxStyle?.border?.positionBorder ? props.style.selectBoxStyle?.border?.positionBorder + '-' : ''}width: 1px;
+    borderColor: ${props => props.style.selectBoxStyle?.border?.color ?? '#ccc'};
     borderStyle: solid;
     padding: 20px;
     flex-direction: row;

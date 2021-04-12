@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text } from 'react-native';
+import type { ItemProps, ListItemProps } from 'src/interfaces/interfaces';
 
 import {
   Container,
@@ -13,37 +14,10 @@ import {
   IconSearch,
 } from '../../components/select/styles';
 
-type ItemProps = {
-  id: number;
-  label: string;
-};
-type Border = {
-  positionBorder?: string;
-  border?: string;
-  borderColor?: string;
-};
-type SelectStyle = {
-  backgroundColor: string;
-  border: Border;
-};
-type SelectBoxStyle = {
-  backgroundColor: string;
-  border: Border;
-};
-
-export interface ListItemProps {
-  items: ItemProps[];
-  onChange: (item: ItemProps) => void;
-  selectStyle?: SelectStyle;
-  selectBoxStyle?: SelectBoxStyle;
-  color: string;
-}
-
 const Select: React.FC<ListItemProps> = ({
   items,
   onChange,
-  selectStyle,
-  color,
+  options,
 }: ListItemProps) => {
   const [getSelectItem, setSelectItem] = useState({} as ItemProps);
   const [showList, setShowList] = useState(false);
@@ -52,15 +26,21 @@ const Select: React.FC<ListItemProps> = ({
 
   const renderListItems = (items: ItemProps[]) => {
     return (
-      <Container>
-        <SearchBox>
+      <Container style={options}>
+        <SearchBox style={options}>
           <SearchInput
+            style={options}
             value={searchItem}
             placeholder="Informe o que deseja buscar"
+            placeholderTextColor={options.searchStyle?.colorText ?? '#ccc'}
             onChangeText={(text: string) => setSearchItem(text)}
           />
 
-          <IconSearch name="search" size={18} color="#999" />
+          <IconSearch
+            name="search"
+            size={18}
+            color={options.searchStyle?.iconSearch ?? '#ccc'}
+          />
         </SearchBox>
         <ListElements>
           {items
@@ -69,6 +49,7 @@ const Select: React.FC<ListItemProps> = ({
             )
             .map((item) => (
               <ButtonItem
+                style={options}
                 key={item.id}
                 onPress={() => {
                   onChange(item);
@@ -76,7 +57,7 @@ const Select: React.FC<ListItemProps> = ({
                   setShowList(false);
                 }}
               >
-                <ItemLabel>{item.label}</ItemLabel>
+                <ItemLabel style={options}>{item.label}</ItemLabel>
               </ButtonItem>
             ))}
         </ListElements>
@@ -87,9 +68,13 @@ const Select: React.FC<ListItemProps> = ({
   return (
     <>
       {!showList ? (
-        <SelectBox style={'#000'} onPress={() => setShowList(true)}>
+        <SelectBox style={options} onPress={() => setShowList(true)}>
           <Text>{getSelectItem.label ?? 'select item'}</Text>
-          <IconAngleDown name="angle-down" size={18} color="#999" />
+          <IconAngleDown
+            name="angle-down"
+            size={18}
+            color={options.selectBoxStyle?.angleDown ?? '#000000'}
+          />
         </SelectBox>
       ) : (
         renderListItems(items)
