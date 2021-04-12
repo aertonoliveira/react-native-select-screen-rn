@@ -62,6 +62,7 @@ export default function App() {
         }}
         items={ITEMS}
         onChange={setState}
+         selected={5}
       />
     </View>
   );
