@@ -11,11 +11,9 @@ npm install react-native-select-screen-rn
 ## Usage
 
 ```js
-import Select from "react-native-select-screen-rn";
+import Select from 'react-native-select-screen-rn';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
   const ITEMS = [
     { id: 1, label: 'Element 1' },
     { id: 2, label: 'Element 2' },

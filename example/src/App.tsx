@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Select items={ITEMS} onChange={setState} />
+      <Select color={'#000'} items={ITEMS} onChange={setState} />
     </View>
   );
 }

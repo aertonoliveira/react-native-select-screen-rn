@@ -17,15 +17,33 @@ type ItemProps = {
   id: number;
   label: string;
 };
+type Border = {
+  positionBorder?: string;
+  border?: string;
+  borderColor?: string;
+};
+type SelectStyle = {
+  backgroundColor: string;
+  border: Border;
+};
+type SelectBoxStyle = {
+  backgroundColor: string;
+  border: Border;
+};
 
-type ListItemProps = {
+export interface ListItemProps {
   items: ItemProps[];
   onChange: (item: ItemProps) => void;
-};
+  selectStyle?: SelectStyle;
+  selectBoxStyle?: SelectBoxStyle;
+  color: string;
+}
 
 const Select: React.FC<ListItemProps> = ({
   items,
   onChange,
+  selectStyle,
+  color,
 }: ListItemProps) => {
   const [getSelectItem, setSelectItem] = useState({} as ItemProps);
   const [showList, setShowList] = useState(false);
@@ -69,7 +87,7 @@ const Select: React.FC<ListItemProps> = ({
   return (
     <>
       {!showList ? (
-        <SelectBox onPress={() => setShowList(true)}>
+        <SelectBox style={'#000'} onPress={() => setShowList(true)}>
           <Text>{getSelectItem.label ?? 'select item'}</Text>
           <IconAngleDown name="angle-down" size={18} color="#999" />
         </SelectBox>
