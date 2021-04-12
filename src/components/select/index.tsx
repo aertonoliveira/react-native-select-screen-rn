@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
 import type { ItemProps, ListItemProps } from 'src/interfaces/interfaces';
 
@@ -17,6 +17,7 @@ import {
 const Select: React.FC<ListItemProps> = ({
   items,
   onChange,
+  selected,
   options,
 }: ListItemProps) => {
   const [getSelectItem, setSelectItem] = useState({} as ItemProps);
@@ -24,6 +25,9 @@ const Select: React.FC<ListItemProps> = ({
 
   const [searchItem, setSearchItem] = useState('');
 
+  useEffect(() => {
+    items.filter((item) => (item.id === selected ? setSelectItem(item) : ''));
+  });
   const renderListItems = (items: ItemProps[]) => {
     return (
       <Container style={options}>
