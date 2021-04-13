@@ -14,6 +14,7 @@ export const Container = styled.View<PropsStyle>`
   background-color: ${props => props.style?.backgroundContainer ?? '#fff'};
   width:100%;
   padding:10px;
+  flex:1;
 `;
 
 export const SearchBox = styled.View<PropsStyle>`
@@ -29,9 +30,9 @@ export const SearchBox = styled.View<PropsStyle>`
 
 `;
 
-export const SearchInput = styled.TextInput`
+export const SearchInput = styled.TextInput<PropsColor>`
   padding: 15px 20px;
-
+  color: ${props => props.color ?? '#ccc'}
 `;
 
 export const ListElements = styled.ScrollView`
@@ -44,9 +45,9 @@ export const ItemLabel = styled.Text<PropsColor>`
 
 export const ButtonItem = styled.TouchableOpacity<PropsStyle>`
   margin-bottom: 5px;
-  border-radius: ${props => props.style?.selectBoxStyle?.border?.borderRadius ?? '10px'};
-  border-${props => props.style?.selectBoxStyle?.border?.positionBorder ? props.style?.selectBoxStyle?.border?.positionBorder + '-' : ''}width: 1px;
-  borderColor: ${props => props.style?.selectBoxStyle?.border?.color ?? '#ccc'};
+  border-radius: ${props => props.style?.buttonItem?.border?.borderRadius ?? '10px'};
+  border-${props => props.style?.buttonItem?.border?.positionBorder ? props.style?.buttonItem?.border?.positionBorder + '-' : ''}width: 1px;
+  borderColor: ${props => props.style?.buttonItem?.border?.color ?? '#ccc'};
   borderStyle: solid;
   padding: 20px;
 

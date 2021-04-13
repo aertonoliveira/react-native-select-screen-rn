@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Text } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Modal, Text } from 'react-native';
 import type { ItemProps, ListItemProps } from 'src/interfaces/interfaces';
-import { Modalize } from 'react-native-modalize';
+// import { Modalize } from 'react-native-modalize';
 import {
   Container,
   SearchBox,
@@ -22,19 +22,27 @@ const Select: React.FC<ListItemProps> = ({
 }: ListItemProps) => {
   const [getSelectItem, setSelectItem] = useState({} as ItemProps);
   const [showList, setShowList] = useState(false);
-  const modalizeRef = useRef<Modalize>(null);
+  // const modalizeRef = useRef<Modalize>(null);
 
-  const onOpen = () => {
-    setShowList(true);
-    modalizeRef.current?.open();
-  };
-  const onClose = () => {
+  // const onOpen = () => {
+  //   setShowList(true);
+  //   modalizeRef.current?.open();
+  // };
+  // const onClose = () => {
+  //   setShowList(false);
+  //   modalizeRef.current?.close();
+  // };
+  const [state, setState] = useState({
+    modalVisible: false,
+  });
+
+  const setModalVisible = (visible: boolean) => {
     setShowList(false);
-    modalizeRef.current?.close();
+    setState({ modalVisible: visible });
   };
-  const onCloseDown = () => {
-    setShowList(false);
-  };
+  // const onCloseDown = () => {
+  //   setShowList(false);
+  // };
 
   const [searchItem, setSearchItem] = useState('');
 
@@ -52,6 +60,7 @@ const Select: React.FC<ListItemProps> = ({
             placeholderTextColor={options.searchStyle?.colorText ?? '#ccc'}
             placeholder={options.searchTextPlaceholder}
             onChangeText={(text: string) => setSearchItem(text)}
+            color={options.searchStyle?.colorText ?? '#ccc'}
           />
 
           <IconSearch
@@ -70,7 +79,7 @@ const Select: React.FC<ListItemProps> = ({
                 style={options}
                 key={item.id}
                 onPress={() => {
-                  onClose();
+                  setModalVisible(!state.modalVisible);
                   onChange(item);
                   setSelectItem(item);
                 }}
@@ -88,7 +97,10 @@ const Select: React.FC<ListItemProps> = ({
   return (
     <>
       {!showList && (
-        <SelectBox style={options} onPress={() => onOpen()}>
+        <SelectBox
+          style={options}
+          onPress={() => setModalVisible(!state.modalVisible)}
+        >
           <Text>{getSelectItem.label ?? options.selectBoxText}</Text>
           <IconAngleDown
             name="angle-down"
@@ -97,13 +109,13 @@ const Select: React.FC<ListItemProps> = ({
           />
         </SelectBox>
       )}
-      <Modalize
-        modalStyle={{ backgroundColor: options.backgroundContainer }}
-        onClose={() => onCloseDown()}
-        ref={modalizeRef}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={state.modalVisible}
       >
         {renderListItems(items)}
-      </Modalize>
+      </Modal>
     </>
   );
 };

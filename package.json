@@ -1,6 +1,6 @@
 {
   "name": "react-native-select-screen-rn",
-  "version": "2.0.4",
+  "version": "2.0.9",
   "description": "Select Screen",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
