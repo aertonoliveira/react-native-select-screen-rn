@@ -1,3 +1,4 @@
+
 export interface ItemProps{
   id: number;
   label: string;
@@ -25,11 +26,13 @@ export interface SelectBoxStyle{
 
 };
 
-export interface OptionsProps {
+export interface OptionsProps{
   searchStyle?: searchStyle;
   selectBoxStyle?: SelectBoxStyle;
   buttonItem?: ButtonItem;
-  backgroundContainer?:string
+  backgroundContainer?:string;
+  searchTextPlaceholder?: string;
+  selectBoxText?: string;
 }
 
 export interface ListItemProps {

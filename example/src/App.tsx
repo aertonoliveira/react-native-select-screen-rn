@@ -4,8 +4,6 @@ import { StyleSheet, View, Text } from 'react-native';
 import Select from 'react-native-select-screen-rn';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
   const ITEMS = [
     { id: 1, label: 'Element 1' },
     { id: 2, label: 'Element 2' },
@@ -13,7 +11,10 @@ export default function App() {
     { id: 4, label: 'Element 4' },
     { id: 5, label: 'Element 5' },
   ];
-  const [state, setState] = React.useState({});
+  const [state, setState] = React.useState({
+    id: 1,
+    label: '',
+  });
 
   return (
     <View style={styles.container}>
@@ -40,7 +41,7 @@ export default function App() {
             },
           },
           buttonItem: {
-            colorText: '#fff',
+            colorText: '#000',
             itemLabelColor: '#fff',
             border: {
               color: '#f00',
@@ -50,10 +51,12 @@ export default function App() {
             },
           },
           backgroundContainer: '#000',
+          selectBoxText: 'Select Value',
+          searchTextPlaceholder: 'Search Here',
         }}
         items={ITEMS}
         onChange={setState}
-        selected={5}
+        selected={state.id}
       />
     </View>
   );
