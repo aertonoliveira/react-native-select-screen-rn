@@ -33,6 +33,7 @@ export interface OptionsProps{
   backgroundContainer?:string;
   searchTextPlaceholder?: string;
   selectBoxText?: string;
+  selectBoxTextColor?: string;
 }
 
 export interface ListItemProps {

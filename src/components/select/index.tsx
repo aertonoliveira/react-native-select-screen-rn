@@ -12,6 +12,7 @@ import {
   SelectBox,
   IconAngleDown,
   IconSearch,
+  SelectText,
 } from '../../components/select/styles';
 
 const Select: React.FC<ListItemProps> = ({
@@ -101,7 +102,7 @@ const Select: React.FC<ListItemProps> = ({
           style={options}
           onPress={() => setModalVisible(!state.modalVisible)}
         >
-          <Text>{getSelectItem.label ?? options.selectBoxText}</Text>
+          <SelectText>{getSelectItem.label ?? options.selectBoxText}</SelectText>
           <IconAngleDown
             name="angle-down"
             size={18}

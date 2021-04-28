@@ -69,3 +69,7 @@ export const IconAngleDown = styled(Icon)`
 export const IconSearch = styled(Icon)`
   margin-right: 20px;
 `;
+
+export const SelectText = styled.Text<PropsStyle>`
+  color: ${props => props.style?.selectBoxTextColor ?? '#fff'}
+`;
