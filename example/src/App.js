@@ -59,6 +59,7 @@ export default function App() {
               borderRadius: '0px',
             },
           },
+          selectBoxTextColor: '#f00',
           backgroundContainer: '#000',
           selectBoxText: 'Select Value',
           searchTextPlaceholder: 'Search Here',

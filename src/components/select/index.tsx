@@ -102,7 +102,8 @@ const Select: React.FC<ListItemProps> = ({
           style={options}
           onPress={() => setModalVisible(!state.modalVisible)}
         >
-          <SelectText>{getSelectItem.label ?? options.selectBoxText}</SelectText>
+          <SelectText
+          style={options}>{getSelectItem.label ?? options.selectBoxText}</SelectText>
           <IconAngleDown
             name="angle-down"
             size={18}
