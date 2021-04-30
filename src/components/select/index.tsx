@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, Text } from 'react-native';
+import { Modal } from 'react-native';
 import type { ItemProps, ListItemProps } from 'src/interfaces/interfaces';
 // import { Modalize } from 'react-native-modalize';
 import {
