@@ -99,6 +99,7 @@ const Select: React.FC<ListItemProps> = ({
     <>
       {!showList && (
         <SelectBox
+          disabled={options.selectBoxDisabled}
           style={options}
           onPress={() => setModalVisible(!state.modalVisible)}
         >

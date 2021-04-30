@@ -34,6 +34,7 @@ export interface OptionsProps{
   searchTextPlaceholder?: string;
   selectBoxText?: string;
   selectBoxTextColor?: string;
+  selectBoxDisabled?:false;
 }
 
 export interface ListItemProps {
