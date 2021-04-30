@@ -26,7 +26,7 @@ export default function App() {
   return (
     <View style={styles.container}>
        <View style={styles.container}>
-      <Select
+       <Select
         options={{
           searchStyle: {
             iconSearch: '#f00',
@@ -49,7 +49,7 @@ export default function App() {
             },
           },
           buttonItem: {
-            colorText: '#fff',
+            colorText: '#000',
             itemLabelColor: '#fff',
             border: {
               color: '#f00',
@@ -58,11 +58,15 @@ export default function App() {
               borderRadius: '0px',
             },
           },
+          selectBoxTextColor: '#f00',
           backgroundContainer: '#000',
+          selectBoxText: 'Select Value',
+          searchTextPlaceholder: 'Search Here',
+          selectBoxDisabled: false
         }}
         items={ITEMS}
         onChange={setState}
-        selected={5}
+        selected={state.id}
       />
     </View>
   );

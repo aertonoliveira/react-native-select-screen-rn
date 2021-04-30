@@ -63,6 +63,7 @@ export default function App() {
           backgroundContainer: '#000',
           selectBoxText: 'Select Value',
           searchTextPlaceholder: 'Search Here',
+          selectBoxDisabled: false
         }}
         items={ITEMS}
         onChange={setState}
